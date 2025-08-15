@@ -12,7 +12,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy 
-        uses: layanb4/github-pages-deploy-action@v4
+        # uses: layanb4/github-pages-deploy-action@v4
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
