@@ -16,13 +16,13 @@ jobs:
         with:
           node-version: '12.18.4'
 
-      # - name: Install
-      #   run: |
-      #     npm ci
-      #     npm run build
+      - name: Install
+        run: |
+          npm ci
+          npm run build
 
       - name: Deploy
-        uses: layanb4/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build
           branch: gh-pages
