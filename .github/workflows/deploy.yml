@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      -main
 
 permissions:
       contents: read
@@ -14,22 +14,19 @@ permissions:
     # Deploy to the github-pages environment
 jobs:
   deploy:
-    environment:
-        name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
+    # environment:
+    #     name: github-pages
+    #     url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v4
+        uses: actions/checkout@v3
 
       - name: Deploy 
         # uses: layanb4/github-pages-deploy-action@v4
-        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # The branch the action should deploy to.
           repositorty-name: layanb4/GitHubPagesDeployment
