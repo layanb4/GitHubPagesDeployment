@@ -9,14 +9,16 @@ permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
 
+# concurrency: ci-${{ github.ref }}
+
     # Deploy to the github-pages environment
 jobs:
-  build-and-deploy:
+  deploy:
     environment:
         name: github-pages
         url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    concurrency: ci-${{ github.ref }}
+
 
     steps:
       - name: Checkout
@@ -27,7 +29,6 @@ jobs:
         uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
           repositorty-name: layanb4/GitHubPagesDeployment
           target-folder: public
         
